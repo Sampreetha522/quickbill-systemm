@@ -12,7 +12,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -22,7 +22,7 @@ body{
 /* NAVBAR */
 
 .navbar{
-    background:#0f172a;
+    background:#111827;
     color:white;
     padding:18px 40px;
     display:flex;
@@ -36,18 +36,10 @@ body{
     color:#38bdf8;
 }
 
-.navbar ul{
-    display:flex;
-    list-style:none;
-}
-
-.navbar ul li{
-    margin-left:20px;
-}
-
-.navbar ul li a{
+.nav-links a{
     color:white;
     text-decoration:none;
+    margin-left:20px;
 }
 
 /* HERO */
@@ -60,15 +52,10 @@ body{
 }
 
 .hero h1{
-    font-size:45px;
+    font-size:42px;
 }
 
-.hero p{
-    margin-top:10px;
-    font-size:18px;
-}
-
-/* PRODUCTS */
+/* MAIN */
 
 .container{
     width:90%;
@@ -76,85 +63,76 @@ body{
     margin-top:40px;
 }
 
-.title{
-    margin-bottom:20px;
-    color:#111827;
-}
+/* INPUT SECTION */
 
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-}
-
-.card{
+.input-box{
     background:white;
+    padding:25px;
     border-radius:15px;
-    overflow:hidden;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.input-box h2{
+    margin-bottom:20px;
 }
 
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
+.input-group{
+    margin-bottom:15px;
 }
 
-.card-content{
-    padding:20px;
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-.price{
-    color:#2563eb;
-    font-size:20px;
+label{
+    display:block;
+    margin-bottom:5px;
     font-weight:bold;
 }
 
-button{
-    margin-top:15px;
+input{
     width:100%;
     padding:12px;
-    border:none;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+button{
+    padding:12px 18px;
     background:#2563eb;
     color:white;
+    border:none;
     border-radius:8px;
     cursor:pointer;
-    font-size:15px;
+    margin-top:10px;
 }
 
 button:hover{
     background:#1d4ed8;
 }
 
-/* BILL */
+/* BILL TABLE */
 
 .bill-box{
-    margin-top:40px;
+    margin-top:30px;
     background:white;
-    padding:30px;
+    padding:25px;
     border-radius:15px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.bill-box h2{
-    margin-bottom:20px;
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
 }
 
-.bill-item{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-    padding-bottom:10px;
-    border-bottom:1px solid #ddd;
+table th,table td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+table th{
+    background:#2563eb;
+    color:white;
 }
 
 .total{
@@ -162,6 +140,8 @@ button:hover{
     font-size:24px;
     font-weight:bold;
 }
+
+/* RECEIPT */
 
 .receipt{
     margin-top:25px;
@@ -171,25 +151,27 @@ button:hover{
     border:1px solid #ccc;
 }
 
+/* HISTORY */
+
 .history{
-    margin-top:25px;
+    margin-top:30px;
 }
 
-.history div{
+.history-item{
     background:#dbeafe;
+    padding:12px;
     margin-top:10px;
-    padding:10px;
     border-radius:8px;
 }
 
 /* FOOTER */
 
 .footer{
-    margin-top:50px;
-    background:#0f172a;
+    margin-top:40px;
+    background:#111827;
     color:white;
     text-align:center;
-    padding:18px;
+    padding:15px;
 }
 
 </style>
@@ -205,12 +187,12 @@ button:hover{
 NovaMart
 </div>
 
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">Products</a></li>
-<li><a href="#">Billing</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Products</a>
+<a href="#">Billing</a>
+<a href="#">Contact</a>
+</div>
 
 </div>
 
@@ -218,89 +200,65 @@ NovaMart
 
 <div class="hero">
 <h1>NovaMart Billing System</h1>
-<p>Professional Billing & Receipt Management</p>
+<p>Professional Billing & Receipt Generator</p>
 </div>
 
-<!-- PRODUCTS -->
+<!-- MAIN -->
 
 <div class="container">
 
-<h2 class="title">Featured Products</h2>
+<!-- INPUT -->
 
-<div class="products">
+<div class="input-box">
 
-<!-- PRODUCT 1 -->
+<h2>Add Products</h2>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+<div class="input-group">
+<label>Product Name</label>
+<input type="text" id="product">
+</div>
 
-<div class="card-content">
-<h3>iPhone 15 Pro</h3>
-<p class="price">₹85,000</p>
+<div class="input-group">
+<label>Price</label>
+<input type="number" id="price">
+</div>
 
-<button onclick="addItem('iPhone 15 Pro',85000)">
-Add to Bill
+<div class="input-group">
+<label>Quantity</label>
+<input type="number" id="qty">
+</div>
+
+<button onclick="addProduct()">
+Add Product
 </button>
-</div>
-</div>
-
-<!-- PRODUCT 2 -->
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-
-<div class="card-content">
-<h3>Smart Watch</h3>
-<p class="price">₹6,000</p>
-
-<button onclick="addItem('Smart Watch',6000)">
-Add to Bill
-</button>
-</div>
-</div>
-
-<!-- PRODUCT 3 -->
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8">
-
-<div class="card-content">
-<h3>Gaming Laptop</h3>
-<p class="price">₹72,000</p>
-
-<button onclick="addItem('Gaming Laptop',72000)">
-Add to Bill
-</button>
-</div>
-</div>
-
-<!-- PRODUCT 4 -->
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585386959984-a4155224f3f1">
-
-<div class="card-content">
-<h3>Headphones</h3>
-<p class="price">₹4,500</p>
-
-<button onclick="addItem('Headphones',4500)">
-Add to Bill
-</button>
-</div>
-</div>
 
 </div>
 
-<!-- BILLING -->
+<!-- BILL -->
 
 <div class="bill-box">
 
 <h2>Billing Receipt</h2>
 
-<div id="bill-items"></div>
+<table>
 
-<div class="total" id="total">
-Total : ₹0
+<thead>
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Total</th>
+</tr>
+</thead>
+
+<tbody id="bill-data">
+
+</tbody>
+
+</table>
+
+<div class="total" id="grand-total">
+Grand Total : ₹0
 </div>
 
 <button onclick="generateReceipt()">
@@ -308,13 +266,17 @@ Generate Final Receipt
 </button>
 
 <div class="receipt" id="receipt">
-Receipt details appear here
+Receipt will appear here
 </div>
 
+<!-- HISTORY -->
+
 <div class="history">
+
 <h3>Billing History</h3>
 
-<div id="history"></div>
+<div id="history-list"></div>
+
 </div>
 
 </div>
@@ -324,68 +286,69 @@ Receipt details appear here
 <!-- FOOTER -->
 
 <div class="footer">
-© 2026 NovaMart | Designed by Sampreetha
+© 2026 NovaMart Billing System | Designed by Sampreetha
 </div>
 
 <script>
 
-let cart=[];
 let total=0;
 
-function addItem(name,price){
+function addProduct(){
 
-    cart.push({name,price});
+    let product=document.getElementById("product").value;
 
-    total+=price;
+    let price=parseInt(document.getElementById("price").value);
 
-    displayBill();
-}
+    let qty=parseInt(document.getElementById("qty").value);
 
-function displayBill(){
+    let finalPrice=price*qty;
 
-    let bill=document.getElementById("bill-items");
+    total+=finalPrice;
 
-    bill.innerHTML="";
+    document.getElementById("bill-data").innerHTML+=`
 
-    cart.forEach(item=>{
+    <tr>
+    <td>${product}</td>
+    <td>₹${price}</td>
+    <td>${qty}</td>
+    <td>₹${finalPrice}</td>
+    </tr>
 
-        bill.innerHTML+=`
-        <div class="bill-item">
-        <span>${item.name}</span>
-        <span>₹${item.price}</span>
-        </div>
-        `;
-    });
+    `;
 
-    document.getElementById("total").innerHTML=
-    "Total : ₹"+total;
+    document.getElementById("grand-total").innerHTML=
+    "Grand Total : ₹"+total;
+
+    document.getElementById("product").value="";
+    document.getElementById("price").value="";
+    document.getElementById("qty").value="";
 }
 
 function generateReceipt(){
 
     let receipt=document.getElementById("receipt");
 
-    let output="<h3>Final Receipt</h3><br>";
+    receipt.innerHTML=`
 
-    cart.forEach(item=>{
+    <h3>Receipt Generated Successfully</h3>
 
-        output+=`${item.name} - ₹${item.price}<br>`;
-    });
+    <br>
 
-    output+=`<br><b>Total Amount : ₹${total}</b>`;
+    <b>Total Amount : ₹${total}</b>
 
-    receipt.innerHTML=output;
+    <br><br>
 
-    document.getElementById("history").innerHTML+=`
-    <div>
-    Bill Generated - ₹${total}
-    </div>
+    Thank you for shopping with NovaMart!
+
     `;
 
-    cart=[];
-    total=0;
+    document.getElementById("history-list").innerHTML+=`
 
-    displayBill();
+    <div class="history-item">
+    Bill Generated - ₹${total}
+    </div>
+
+    `;
 }
 
 </script>
