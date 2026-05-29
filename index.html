@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Project Billing System</title>
+<title>Billing System</title>
 
 <style>
 
@@ -16,12 +16,13 @@
 }
 
 body{
-    background:#eef2f7;
+    background:#f8f5f2;
 }
 
+/* NAVBAR */
 
 .navbar{
-    background:#111827;
+    background:#1b1b2f;
     color:white;
     padding:18px 40px;
     display:flex;
@@ -32,25 +33,39 @@ body{
 .logo{
     font-size:28px;
     font-weight:bold;
-    color:#38bdf8;
+    color:#ffb703;
 }
 
 .nav-links a{
     color:white;
     text-decoration:none;
     margin-left:20px;
+    transition:0.3s;
 }
 
+.nav-links a:hover{
+    color:#ffb703;
+}
+
+/* HERO */
+
 .hero{
-    background:linear-gradient(to right,#2563eb,#38bdf8);
+    background:linear-gradient(to right,#ff6b6b,#ff9f1c,#2ec4b6);
     color:white;
     text-align:center;
-    padding:60px 20px;
+    padding:70px 20px;
 }
 
 .hero h1{
-    font-size:42px;
+    font-size:45px;
 }
+
+.hero p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* MAIN */
 
 .container{
     width:90%;
@@ -58,105 +73,142 @@ body{
     margin-top:40px;
 }
 
+/* INPUT SECTION */
+
 .input-box{
     background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
 .input-box h2{
     margin-bottom:20px;
+    color:#1b1b2f;
 }
 
 .input-group{
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
 label{
     display:block;
-    margin-bottom:5px;
+    margin-bottom:8px;
     font-weight:bold;
+    color:#333;
 }
 
 input{
     width:100%;
-    padding:12px;
+    padding:14px;
     border:1px solid #ccc;
-    border-radius:8px;
+    border-radius:10px;
     font-size:15px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#2ec4b6;
 }
 
 button{
-    padding:12px 18px;
-    background:#6118a5;
+    padding:14px 20px;
+    background:#2ec4b6;
     color:white;
     border:none;
-    border-radius:8px;
+    border-radius:10px;
     cursor:pointer;
     margin-top:10px;
+    font-size:16px;
+    transition:0.3s;
 }
 
 button:hover{
-    background:#0e0d0d;
+    background:#239b8f;
 }
 
+/* BILL SECTION */
+
 .bill-box{
-    margin-top:30px;
-    background:rgb(0, 0, 0);
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    margin-top:35px;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
+
+.bill-box h2{
+    color:#1b1b2f;
+}
+
+/* TABLE */
 
 table{
     width:100%;
     border-collapse:collapse;
-    margin-top:20px;
+    margin-top:25px;
 }
 
 table th,table td{
     border:1px solid #ddd;
-    padding:12px;
+    padding:14px;
     text-align:center;
 }
 
 table th{
-    background:#2563eb;
+    background:#ff6b6b;
     color:white;
+}
+
+table tr:nth-child(even){
+    background:#fdf2f2;
 }
 
 .total{
-    margin-top:20px;
-    font-size:24px;
+    margin-top:25px;
+    font-size:26px;
     font-weight:bold;
+    color:#1b1b2f;
 }
+
+/* RECEIPT */
 
 .receipt{
-    margin-top:25px;
-    background:#f8fafc;
+    margin-top:30px;
+    background:#fffaf0;
     padding:20px;
-    border-radius:10px;
-    border:1px solid #ccc;
+    border-radius:12px;
+    border-left:6px solid #ff9f1c;
+    font-size:17px;
 }
 
+/* HISTORY */
+
 .history{
-    margin-top:30px;
+    margin-top:35px;
+}
+
+.history h3{
+    color:#1b1b2f;
 }
 
 .history-item{
-    background:#dbeafe;
-    padding:12px;
-    margin-top:10px;
-    border-radius:8px;
+    background:#fff3cd;
+    padding:14px;
+    margin-top:12px;
+    border-radius:10px;
+    border-left:5px solid #ffb703;
 }
 
+/* FOOTER */
+
 .footer{
-    margin-top:40px;
-    background:#e68a00;
+    margin-top:50px;
+    background:#1b1b2f;
     color:white;
     text-align:center;
-    padding:15px;
+    padding:18px;
+    font-size:15px;
 }
 
 </style>
@@ -164,11 +216,12 @@ table th{
 
 <body>
 
+<!-- NAVBAR -->
 
 <div class="navbar">
 
 <div class="logo">
-Project Billing System
+Billing System
 </div>
 
 <div class="nav-links">
@@ -180,13 +233,23 @@ Project Billing System
 
 </div>
 
+<!-- HERO -->
 
 <div class="hero">
-<h1>Project Billing System</h1>
-<p>Billing System</p>
+
+<h1>Billing System</h1>
+
+<p>
+Billing System
+</p>
+
 </div>
 
+<!-- MAIN -->
+
 <div class="container">
+
+<!-- PRODUCT INPUT -->
 
 <div class="input-box">
 
@@ -194,17 +257,17 @@ Project Billing System
 
 <div class="input-group">
 <label>Product Name</label>
-<input type="text" id="product">
+<input type="text" id="product" placeholder="Enter product name">
 </div>
 
 <div class="input-group">
 <label>Price</label>
-<input type="number" id="price">
+<input type="number" id="price" placeholder="Enter price">
 </div>
 
 <div class="input-group">
 <label>Quantity</label>
-<input type="number" id="qty">
+<input type="number" id="qty" placeholder="Enter quantity">
 </div>
 
 <button onclick="addProduct()">
@@ -213,6 +276,7 @@ Add Product
 
 </div>
 
+<!-- BILL -->
 
 <div class="bill-box">
 
@@ -243,10 +307,13 @@ Grand Total : ₹0
 Generate Final Receipt
 </button>
 
+<!-- RECEIPT -->
+
 <div class="receipt" id="receipt">
 Receipt will appear here
 </div>
 
+<!-- HISTORY -->
 
 <div class="history">
 
@@ -260,10 +327,10 @@ Receipt will appear here
 
 </div>
 
-
+<!-- FOOTER -->
 
 <div class="footer">
-© 2026 Project Billing System | Designed by Sampreetha
+© 2026 Billing System | Designed by Sampreetha
 </div>
 
 <script>
@@ -307,7 +374,7 @@ function generateReceipt(){
 
     receipt.innerHTML=`
 
-    <h3>Receipt Generated Successfully</h3>
+    <h3>Receipt Generated Successfully ✅</h3>
 
     <br>
 
@@ -315,14 +382,14 @@ function generateReceipt(){
 
     <br><br>
 
-    Thank you for shopping with NovaMart!
+    Thank you for using Billing System 🛒
 
     `;
 
     document.getElementById("history-list").innerHTML+=`
 
     <div class="history-item">
-    Bill Generated - ₹${total}
+    Bill Generated Successfully - ₹${total}
     </div>
 
     `;
