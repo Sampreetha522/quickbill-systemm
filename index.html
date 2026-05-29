@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QuickBill Store</title>
+
+<title>NovaMart Billing System</title>
 
 <style>
 
@@ -15,13 +16,13 @@
 }
 
 body{
-    background:#f4f6f9;
+    background:#eef2f7;
 }
 
 /* NAVBAR */
 
 .navbar{
-    background:#111827;
+    background:#0f172a;
     color:white;
     padding:18px 40px;
     display:flex;
@@ -35,145 +36,160 @@ body{
     color:#38bdf8;
 }
 
-.nav-links a{
-    color:white;
-    text-decoration:none;
+.navbar ul{
+    display:flex;
+    list-style:none;
+}
+
+.navbar ul li{
     margin-left:20px;
 }
 
-/* MAIN */
+.navbar ul li a{
+    color:white;
+    text-decoration:none;
+}
 
-.container{
-    display:flex;
-    gap:30px;
-    padding:30px;
+/* HERO */
+
+.hero{
+    background:linear-gradient(to right,#2563eb,#38bdf8);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:45px;
+}
+
+.hero p{
+    margin-top:10px;
+    font-size:18px;
 }
 
 /* PRODUCTS */
 
-.products{
-    flex:2;
+.container{
+    width:90%;
+    margin:auto;
+    margin-top:40px;
 }
 
-.products h2{
+.title{
     margin-bottom:20px;
+    color:#111827;
 }
 
-.product-grid{
+.products{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    gap:25px;
 }
 
 .card{
     background:white;
-    padding:20px;
     border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
-    text-align:center;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 .card img{
     width:100%;
-    height:140px;
+    height:180px;
     object-fit:cover;
-    border-radius:10px;
+}
+
+.card-content{
+    padding:20px;
 }
 
 .card h3{
-    margin:15px 0 10px;
-}
-
-.card p{
-    color:#555;
     margin-bottom:10px;
 }
 
-.card button{
-    background:#38bdf8;
-    color:white;
+.price{
+    color:#2563eb;
+    font-size:20px;
+    font-weight:bold;
+}
+
+button{
+    margin-top:15px;
+    width:100%;
+    padding:12px;
     border:none;
-    padding:10px 15px;
+    background:#2563eb;
+    color:white;
     border-radius:8px;
     cursor:pointer;
+    font-size:15px;
 }
 
-.card button:hover{
-    background:#0284c7;
+button:hover{
+    background:#1d4ed8;
 }
 
-/* BILL SECTION */
+/* BILL */
 
-.bill-section{
-    flex:1;
+.bill-box{
+    margin-top:40px;
     background:white;
-    padding:25px;
+    padding:30px;
     border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
-    height:fit-content;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.bill-section h2{
+.bill-box h2{
     margin-bottom:20px;
 }
 
-.cart-item{
+.bill-item{
     display:flex;
     justify-content:space-between;
     margin-bottom:10px;
+    padding-bottom:10px;
     border-bottom:1px solid #ddd;
-    padding-bottom:8px;
 }
 
 .total{
     margin-top:20px;
-    font-size:22px;
+    font-size:24px;
     font-weight:bold;
 }
 
-.generate-btn{
-    width:100%;
-    margin-top:20px;
-    padding:12px;
-    background:#111827;
-    color:white;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:16px;
-}
-
-/* RECEIPT */
-
 .receipt{
     margin-top:25px;
-    background:#f9fafb;
-    padding:15px;
+    background:#f8fafc;
+    padding:20px;
     border-radius:10px;
-    border:1px solid #ddd;
+    border:1px solid #ccc;
 }
-
-/* HISTORY */
 
 .history{
     margin-top:25px;
 }
 
-.history-item{
-    background:#eef2ff;
-    padding:10px;
+.history div{
+    background:#dbeafe;
     margin-top:10px;
+    padding:10px;
     border-radius:8px;
 }
 
 /* FOOTER */
 
 .footer{
-    background:#111827;
+    margin-top:50px;
+    background:#0f172a;
     color:white;
     text-align:center;
-    padding:15px;
-    margin-top:20px;
+    padding:18px;
 }
 
 </style>
@@ -184,91 +200,121 @@ body{
 <!-- NAVBAR -->
 
 <div class="navbar">
-    <div class="logo">QuickBill Store</div>
 
-    <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">Bills</a>
-        <a href="#">Contact</a>
-    </div>
+<div class="logo">
+NovaMart
 </div>
 
-<!-- MAIN -->
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Products</a></li>
+<li><a href="#">Billing</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
 
-<div class="container">
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+<h1>NovaMart Billing System</h1>
+<p>Professional Billing & Receipt Management</p>
+</div>
 
 <!-- PRODUCTS -->
 
+<div class="container">
+
+<h2 class="title">Featured Products</h2>
+
 <div class="products">
 
-<h2>Available Products</h2>
-
-<div class="product-grid">
+<!-- PRODUCT 1 -->
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
-<h3>iPhone 15</h3>
-<p>₹80000</p>
-<button onclick="addToCart('iPhone 15',80000)">
+
+<div class="card-content">
+<h3>iPhone 15 Pro</h3>
+<p class="price">₹85,000</p>
+
+<button onclick="addItem('iPhone 15 Pro',85000)">
 Add to Bill
 </button>
 </div>
+</div>
+
+<!-- PRODUCT 2 -->
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
+
+<div class="card-content">
 <h3>Smart Watch</h3>
-<p>₹5000</p>
-<button onclick="addToCart('Smart Watch',5000)">
+<p class="price">₹6,000</p>
+
+<button onclick="addItem('Smart Watch',6000)">
 Add to Bill
 </button>
+</div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585386959984-a4155224f3f1">
-<h3>Headphones</h3>
-<p>₹3000</p>
-<button onclick="addToCart('Headphones',3000)">
-Add to Bill
-</button>
-</div>
+<!-- PRODUCT 3 -->
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8">
-<h3>Laptop</h3>
-<p>₹65000</p>
-<button onclick="addToCart('Laptop',65000)">
+
+<div class="card-content">
+<h3>Gaming Laptop</h3>
+<p class="price">₹72,000</p>
+
+<button onclick="addItem('Gaming Laptop',72000)">
 Add to Bill
 </button>
 </div>
+</div>
 
+<!-- PRODUCT 4 -->
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1585386959984-a4155224f3f1">
+
+<div class="card-content">
+<h3>Headphones</h3>
+<p class="price">₹4,500</p>
+
+<button onclick="addItem('Headphones',4500)">
+Add to Bill
+</button>
 </div>
 </div>
 
-<!-- BILL -->
+</div>
 
-<div class="bill-section">
+<!-- BILLING -->
+
+<div class="bill-box">
 
 <h2>Billing Receipt</h2>
 
-<div id="cart"></div>
+<div id="bill-items"></div>
 
 <div class="total" id="total">
-Total: ₹0
+Total : ₹0
 </div>
 
-<button class="generate-btn" onclick="generateReceipt()">
-Generate Receipt
+<button onclick="generateReceipt()">
+Generate Final Receipt
 </button>
 
 <div class="receipt" id="receipt">
-Receipt will appear here
+Receipt details appear here
 </div>
 
 <div class="history">
 <h3>Billing History</h3>
 
-<div id="history-list"></div>
+<div id="history"></div>
 </div>
 
 </div>
@@ -278,7 +324,7 @@ Receipt will appear here
 <!-- FOOTER -->
 
 <div class="footer">
-© 2026 QuickBill Store | Designed by Sampreetha
+© 2026 NovaMart | Designed by Sampreetha
 </div>
 
 <script>
@@ -286,61 +332,60 @@ Receipt will appear here
 let cart=[];
 let total=0;
 
-function addToCart(product,price){
+function addItem(name,price){
 
-    cart.push({product,price});
+    cart.push({name,price});
 
     total+=price;
 
-    displayCart();
+    displayBill();
 }
 
-function displayCart(){
+function displayBill(){
 
-    let cartDiv=document.getElementById("cart");
+    let bill=document.getElementById("bill-items");
 
-    cartDiv.innerHTML="";
+    bill.innerHTML="";
 
     cart.forEach(item=>{
 
-        cartDiv.innerHTML+=`
-        <div class="cart-item">
-            <span>${item.product}</span>
-            <span>₹${item.price}</span>
+        bill.innerHTML+=`
+        <div class="bill-item">
+        <span>${item.name}</span>
+        <span>₹${item.price}</span>
         </div>
         `;
     });
 
     document.getElementById("total").innerHTML=
-    "Total: ₹"+total;
+    "Total : ₹"+total;
 }
 
 function generateReceipt(){
 
     let receipt=document.getElementById("receipt");
 
-    let text="<h3>Receipt</h3><br>";
+    let output="<h3>Final Receipt</h3><br>";
 
     cart.forEach(item=>{
-        text+=`${item.product} - ₹${item.price}<br>`;
+
+        output+=`${item.name} - ₹${item.price}<br>`;
     });
 
-    text+=`<br><b>Total Amount: ₹${total}</b>`;
+    output+=`<br><b>Total Amount : ₹${total}</b>`;
 
-    receipt.innerHTML=text;
+    receipt.innerHTML=output;
 
-    let history=document.getElementById("history-list");
-
-    history.innerHTML+=`
-    <div class="history-item">
-        Bill Generated - ₹${total}
+    document.getElementById("history").innerHTML+=`
+    <div>
+    Bill Generated - ₹${total}
     </div>
     `;
 
     cart=[];
     total=0;
 
-    displayCart();
+    displayBill();
 }
 
 </script>
