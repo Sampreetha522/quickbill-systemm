@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBill System</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;08:32 PM 29-05-2026
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            background:white;
+            padding:25px;
+            width:350px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#333;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin:10px 0;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:#4CAF50;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#45a049;
+        }
+
+        .result{
+            margin-top:20px;
+            text-align:center;
+            font-size:18px;
+            color:#222;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>QuickBill System</h2>
+
+    <input type="text" id="item" placeholder="Enter Item Name">
+
+    <input type="number" id="price" placeholder="Enter Price">
+
+    <input type="number" id="quantity" placeholder="Enter Quantity">
+
+    <button onclick="generateBill()">Generate Bill</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+
+function generateBill(){
+
+    let item = document.getElementById("item").value;
+
+    let price = document.getElementById("price").value;
+
+    let quantity = document.getElementById("quantity").value;
+
+    let total = price * quantity;
+
+    document.getElementById("result").innerHTML =
+        "<p><b>Item:</b> " + item + "</p>" +
+        "<p><b>Total Amount:</b> ₹" + total + "</p>";
+}
+
+</script>
+
+</body>
+</html>
